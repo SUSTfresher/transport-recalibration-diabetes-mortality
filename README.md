@@ -80,4 +80,8 @@ Public GitHub repository:
 https://github.com/SUSTfresher/transport-recalibration-diabetes-mortality
 ```
 
-Zenodo archive DOI will be added after creating a release and archiving it.
+Archived release:
+
+```text
+https://doi.org/10.5281/zenodo.20657894
+```

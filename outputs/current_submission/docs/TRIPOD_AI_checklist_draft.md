@@ -40,7 +40,7 @@ This working checklist maps the current manuscript to TRIPOD+AI reporting domain
 | 22 | Patient/public involvement | Not applicable / confirm | Not currently included | Secondary database study. Confirm whether journal requires a statement. |
 | 23 | Ethics and data governance | Needs author confirmation | Submission statements draft | Draft text prepared; local institutional exemption/approval wording must be confirmed. |
 | 24 | Data availability | Partial | Data availability; submission statements draft | Public/restricted data routes described. Add repository links for source data package if journal requires separate upload metadata. |
-| 25 | Code availability | Partial | Code availability; submission statements draft | Draft text prepared. Add public repository URL and archive DOI before submission or acceptance. |
+| 25 | Code availability | Complete | Code availability; submission statements draft | Public GitHub repository and Zenodo archive DOI provided. |
 | 26 | Conflicts, funding, author contributions | Needs author confirmation | Submission statements draft | Placeholders prepared; author initials, funding, and competing interests must be finalized. |
 | 27 | Deployment/human-AI interaction | Complete / not applicable | Methods: Statistical uncertainty and reproducibility paragraph | Retrospective research models only; no UI, alerting logic, or clinical workflow integration implemented. |
 
@@ -48,6 +48,5 @@ This working checklist maps the current manuscript to TRIPOD+AI reporting domain
 
 - Transfer this mapping into the journal's official TRIPOD+AI checklist template.
 - Confirm local ethics/exemption wording for secondary de-identified data analysis.
-- Add code repository URL and archive DOI, or decide whether the DOI will be supplied after acceptance.
 - Fill author contributions, funding, competing interests, and acknowledgements.
 - Confirm whether patient/public involvement statement is required by the target journal.

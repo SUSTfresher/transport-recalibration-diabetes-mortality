@@ -6,7 +6,7 @@ NHANES data are publicly available from the US National Center for Health Statis
 
 ## Code Availability
 
-Analysis scripts used to generate the processed cohorts, source-shift analyses, transportability analyses, recalibration simulations, decision-curve analyses, subgroup tables, manuscript tables, and figures are available at https://github.com/SUSTfresher/transport-recalibration-diabetes-mortality. The public release includes non-restricted code, environment information, a README, and instructions for reproducing outputs from public NHANES files and credentialed MIMIC-IV/eICU access. A Zenodo archive DOI will be added after repository release.
+Analysis scripts used to generate the processed cohorts, source-shift analyses, transportability analyses, recalibration simulations, decision-curve analyses, subgroup tables, manuscript tables, and figures are available at https://github.com/SUSTfresher/transport-recalibration-diabetes-mortality and archived at Zenodo (https://doi.org/10.5281/zenodo.20657894). The public release includes non-restricted code, environment information, a README, and instructions for reproducing outputs from public NHANES files and credentialed MIMIC-IV/eICU access.
 
 ## Ethics Approval
 
