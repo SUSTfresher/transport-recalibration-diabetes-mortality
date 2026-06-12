@@ -6,6 +6,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.patches import FancyArrowPatch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -380,7 +381,18 @@ def draw_panel_d(ax: plt.Axes, raw: pd.DataFrame, selected_updates: dict[str, di
         direction = str(direction)
         raw_x = i - 0.045
         update_x = i + 0.045
-        ax.plot([raw_x, update_x], [raw_slope[i], updated_slope[i]], color="#C4C7C5", lw=2.0, zorder=1)
+        arrow = FancyArrowPatch(
+            (raw_x, raw_slope[i]),
+            (update_x, updated_slope[i]),
+            arrowstyle="-|>",
+            mutation_scale=7.5,
+            lw=1.5,
+            color="#C4C7C5",
+            zorder=1,
+            shrinkA=2.0,
+            shrinkB=2.0,
+        )
+        ax.add_patch(arrow)
         ax.scatter(raw_x, raw_slope[i], s=34, color="#C4C7C5", edgecolor="white", linewidth=0.7, zorder=3)
         ax.scatter(update_x, updated_slope[i], s=46, color=COLORS[direction], edgecolor="white", linewidth=0.8, zorder=4)
         update = selected_updates[direction]

@@ -174,6 +174,11 @@ def check_tables(lines: list[str]) -> bool:
     all_ok &= ok
     lines.append(f"- {status(ok)} class-weighted supplementary CSVs present ({len(supp)})")
 
+    source_internal = SUB / "tables" / "Supplementary_Table_source_internal_calibration.csv"
+    ok = source_internal.exists() and len(pd.read_csv(source_internal)) == 3
+    all_ok &= ok
+    lines.append(f"- {status(ok)} source-internal calibration supplementary table present")
+
     lines.append("")
     return all_ok
 
