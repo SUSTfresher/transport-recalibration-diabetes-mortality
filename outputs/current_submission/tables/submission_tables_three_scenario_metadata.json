@@ -1,0 +1,25 @@
+{
+  "table_1_rows": 18,
+  "table_2_rows": 5,
+  "table_4_rows": 13,
+  "table_5_rows": 18,
+  "table_6_rows": 9,
+  "directions": [
+    "NHANES -> MIMIC-IV",
+    "MIMIC-IV ICU -> eICU",
+    "eICU -> MIMIC-IV ICU"
+  ],
+  "source_files": {
+    "nhanes_cohort": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\data\\nhanes\\processed\\nhanes_2005_2018_diabetes_ckd_mortality_scan.csv",
+    "mimic_icu_cohort": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\data\\mimic\\processed\\mimic_iv31_diabetes_icu_lab_vital_enhanced_cohort.csv",
+    "eicu_cohort": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\data\\eicu\\processed\\eicu_crd20_diabetes_lab_vital_enhanced_cohort.csv",
+    "nhanes_source_classifier": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\domain_shift\\source_classifier_roc_summary.csv",
+    "icu_source_classifier": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\mimic_icu_eicu_source_classifier\\mimic_icu_eicu_source_classifier_summary.csv",
+    "nhanes_recalibration": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\local_recalibration_uncertainty\\recalibration_uncertainty_summary.csv",
+    "icu_recalibration": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\mimic_icu_eicu_transport_recalibration\\event_count_recalibration_summary.csv",
+    "nhanes_subgroup": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\subgroup_transportability\\subgroup_transportability_metrics.csv",
+    "icu_subgroup": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\mimic_icu_eicu_transport_recalibration\\subgroup_transport_metrics.csv",
+    "nhanes_dca": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\decision_curve\\decision_curve_transportability.csv",
+    "icu_dca": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\mimic_icu_eicu_transport_recalibration\\decision_curve_selected_thresholds.csv"
+  }
+}

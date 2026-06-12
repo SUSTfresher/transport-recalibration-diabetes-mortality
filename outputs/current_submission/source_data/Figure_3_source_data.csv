@@ -1,0 +1,97 @@
+panel,direction,metric,method_or_strategy,event_target,threshold,value,ci_lower,ci_upper,notes
+3a,NHANES -> MIMIC-IV,ECE,Intercept-only,0.0,,0.1463140006085736,0.1463140006085736,0.1463140006085736,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3a,NHANES -> MIMIC-IV,ECE,Intercept-only,25.0,,0.0635580935570795,0.0575372222317712,0.0743505077222019,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Intercept-only,50.0,,0.0636326803484829,0.0585368842850033,0.071005729676554,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Intercept-only,100.0,,0.0637381179906743,0.0590553726660812,0.0682529761600078,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Intercept-only,200.0,,0.0636676593269859,0.0601128389191174,0.0670483695883536,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Platt,0.0,,0.1463140006085736,0.1463140006085736,0.1463140006085736,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3a,NHANES -> MIMIC-IV,ECE,Platt,25.0,,0.0275119071760351,0.0119779023351366,0.0681107374299765,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Platt,50.0,,0.0206173882816574,0.0115706510377288,0.0460852934654759,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Platt,100.0,,0.0176383666932457,0.0113934380575744,0.0322225358832411,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Platt,200.0,,0.0150955085749197,0.0109855045759392,0.0254659445103075,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Isotonic,0.0,,0.1463140006085736,0.1463140006085736,0.1463140006085736,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3a,NHANES -> MIMIC-IV,ECE,Isotonic,25.0,,0.0438543159035178,0.0156633695481257,0.0935282249491867,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Isotonic,50.0,,0.0310118473073325,0.0106403155991445,0.0613268160458656,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Isotonic,100.0,,0.0241212871352874,0.009973047917362,0.0452750764050506,ECE mean and empirical interval across 200 local calibration samples.
+3a,NHANES -> MIMIC-IV,ECE,Isotonic,200.0,,0.0182682267707348,0.0084467230281084,0.031713771399452,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Intercept-only,0.0,,0.0591466139098625,0.0591466139098625,0.0591466139098625,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3b,MIMIC-IV ICU -> eICU,ECE,Intercept-only,25.0,,0.0316833164290559,0.0307273053878264,0.0342614507202494,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Intercept-only,50.0,,0.0315916964623565,0.0310112474951619,0.033110738231517,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Intercept-only,100.0,,0.0314275927458146,0.0311105763471849,0.0326059439307689,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Intercept-only,200.0,,0.0313621323072737,0.0312146190324424,0.0315914705140967,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Platt,0.0,,0.0591466139098625,0.0591466139098625,0.0591466139098625,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3b,MIMIC-IV ICU -> eICU,ECE,Platt,25.0,,0.0158313277287436,0.0072102198790628,0.0325182356163239,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Platt,50.0,,0.0132344920925742,0.0074671042624914,0.0277028016357272,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Platt,100.0,,0.0117750338389688,0.0071234717403142,0.0205626364357573,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Platt,200.0,,0.0105037431351982,0.0073284128137711,0.0154394547217442,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Isotonic,0.0,,0.0591466139098625,0.0591466139098625,0.0591466139098625,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3b,MIMIC-IV ICU -> eICU,ECE,Isotonic,25.0,,0.0225884337816817,0.0103697476904282,0.0406064157708518,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Isotonic,50.0,,0.0179722014221501,0.0090592246611957,0.0298753703565649,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Isotonic,100.0,,0.0138904064819373,0.0069840711122687,0.0242931551776296,ECE mean and empirical interval across 200 local calibration samples.
+3b,MIMIC-IV ICU -> eICU,ECE,Isotonic,200.0,,0.0114635927750567,0.0063753506875336,0.0175179265385333,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Intercept-only,0.0,,0.0157417118739993,0.0157417118739993,0.0157417118739993,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3b,eICU -> MIMIC-IV ICU,ECE,Intercept-only,25.0,,0.0148364785872764,0.0142261829282635,0.0172861677608756,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Intercept-only,50.0,,0.0145648105845573,0.0142261619687816,0.0163290309807528,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Intercept-only,100.0,,0.0143983852487819,0.0142261483416048,0.0153950478423633,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Intercept-only,200.0,,0.0142928368626743,0.0142261475655517,0.0149110702098587,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Platt,0.0,,0.0157417118739993,0.0157417118739993,0.0157417118739993,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3b,eICU -> MIMIC-IV ICU,ECE,Platt,25.0,,0.020378403193725,0.0060404034735339,0.0493647761589735,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Platt,50.0,,0.0171797602975515,0.0064644091785813,0.0487808662352223,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Platt,100.0,,0.0157708982463587,0.0058972305373878,0.0332165185580883,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Platt,200.0,,0.0135347543706989,0.0058008583617946,0.0280753432052442,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Isotonic,0.0,,0.0157417118739993,0.0157417118739993,0.0157417118739993,Raw ECE duplicated to anchor each recalibration-method trajectory.
+3b,eICU -> MIMIC-IV ICU,ECE,Isotonic,25.0,,0.0267251665383997,0.0114936413814108,0.0509727532647601,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Isotonic,50.0,,0.0201179549997672,0.0097828542958442,0.0362376899856578,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Isotonic,100.0,,0.0156217031965361,0.0080757901469409,0.0259013881735078,ECE mean and empirical interval across 200 local calibration samples.
+3b,eICU -> MIMIC-IV ICU,ECE,Isotonic,200.0,,0.0129218556121052,0.0070092195985601,0.0209078043984238,ECE mean and empirical interval across 200 local calibration samples.
+3c,NHANES -> MIMIC-IV,Calibration slope,Raw transport,0.0,,0.496720357520664,0.496720357520664,0.496720357520664,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,NHANES -> MIMIC-IV,Calibration slope,Platt selected update,25.0,,1.1049383009843536,0.4662893403767654,3.008017245507104,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,NHANES -> MIMIC-IV,Calibration slope,Platt selected update,50.0,,1.0688159390955083,0.6116854931638877,1.8004935108220623,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,NHANES -> MIMIC-IV,Calibration slope,Platt selected update,100.0,,1.0413833978387932,0.716689976509269,1.5250741253176825,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,NHANES -> MIMIC-IV,Calibration slope,Platt selected update,200.0,,1.0130225924578842,0.7777693112728941,1.360375843987374,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,MIMIC-IV ICU -> eICU,Calibration slope,Raw transport,0.0,,0.563413323439158,0.563413323439158,0.563413323439158,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,MIMIC-IV ICU -> eICU,Calibration slope,Platt selected update,25.0,,1.2141540986564383,0.6688979503686517,2.500404916872521,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,MIMIC-IV ICU -> eICU,Calibration slope,Platt selected update,50.0,,1.170101979593076,0.763273691982572,2.0045787439485108,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,MIMIC-IV ICU -> eICU,Calibration slope,Platt selected update,100.0,,1.1430068978709642,0.8237007405947815,1.5682901846284278,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,MIMIC-IV ICU -> eICU,Calibration slope,Platt selected update,200.0,,1.111057517025636,0.9021979402395616,1.363623217009233,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,eICU -> MIMIC-IV ICU,Calibration slope,Raw transport,0.0,,1.1978769123859494,1.1978769123859494,1.1978769123859494,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,eICU -> MIMIC-IV ICU,Calibration slope,Intercept-only selected update,25.0,,1.1975152395357405,1.1961348038580215,1.198393419113368,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,eICU -> MIMIC-IV ICU,Calibration slope,Intercept-only selected update,50.0,,1.1974623339850354,1.196092694466934,1.1978162289163288,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,eICU -> MIMIC-IV ICU,Calibration slope,Intercept-only selected update,100.0,,1.1973758967680683,1.1961001565243188,1.1977706479301078,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3c,eICU -> MIMIC-IV ICU,Calibration slope,Intercept-only selected update,200.0,,1.1973807719535738,1.196117736478264,1.197717797359087,Selected diagnostic-action slope trajectory from current Table 4; intervals retained as source data.
+3d,NHANES -> MIMIC-IV,Net benefit,Intercept-only 100 events,,0.2,0.0415,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Intercept-only 100 events,,0.25,0.024,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Intercept-only 100 events,,0.3,0.0113,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Internal HGB,,0.2,0.0697,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Internal HGB,,0.25,0.0511,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Internal HGB,,0.3,0.0362,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Platt 100 events,,0.2,0.0408,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Platt 100 events,,0.25,0.0241,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Platt 100 events,,0.3,0.0129,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Raw transport,,0.2,0.0072,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Raw transport,,0.25,0.0027,,,Selected threshold decision-curve summary from Table 6.
+3d,NHANES -> MIMIC-IV,Net benefit,Raw transport,,0.3,0.0008,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Intercept-only 100 events,,0.2,0.0073,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Intercept-only 100 events,,0.25,0.0027,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Intercept-only 100 events,,0.3,-0.0003,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Internal HGB,,0.2,0.0144,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Internal HGB,,0.25,0.0097,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Internal HGB,,0.3,0.0063,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Platt 100 events,,0.2,0.0076,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Platt 100 events,,0.25,0.0058,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Platt 100 events,,0.3,0.0033,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Raw transport,,0.2,-0.0011,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Raw transport,,0.25,-0.0068,,,Selected threshold decision-curve summary from Table 6.
+3d,MIMIC-IV ICU -> eICU,Net benefit,Raw transport,,0.3,-0.0109,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Intercept-only 100 events,,0.2,0.0188,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Intercept-only 100 events,,0.25,0.0119,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Intercept-only 100 events,,0.3,0.0073,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Internal HGB,,0.2,0.0298,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Internal HGB,,0.25,0.0236,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Internal HGB,,0.3,0.017,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Platt 100 events,,0.2,0.019,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Platt 100 events,,0.25,0.012,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Platt 100 events,,0.3,0.0082,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Raw transport,,0.2,0.0169,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Raw transport,,0.25,0.0096,,,Selected threshold decision-curve summary from Table 6.
+3d,eICU -> MIMIC-IV ICU,Net benefit,Raw transport,,0.3,0.0072,,,Selected threshold decision-curve summary from Table 6.

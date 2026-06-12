@@ -1,0 +1,6 @@
+﻿Scenario,Source contrast,Feature block,Logistic AUC,Random forest AUC,N balanced,N per source,features
+Extreme cross-setting stress test,NHANES vs MIMIC-IV,Basic,0.707,0.812,13532,6766,age;female;bmi;systolic_bp;diastolic_bp;hypertension_history;ckd_history;cvd_history
+Extreme cross-setting stress test,NHANES vs MIMIC-IV,Basic + labs,0.743,0.984,13532,6766,age;female;bmi;systolic_bp;diastolic_bp;hypertension_history;ckd_history;cvd_history;hba1c;glucose;creatinine;total_cholesterol;hdl_cholesterol;triglycerides
+Realistic ICU deployment,MIMIC-IV ICU vs eICU,Basic,0.628,0.784,51812,25906 / 25906,age; bmi; female; hypertension_history; ckd_history; cvd_history
+Realistic ICU deployment,MIMIC-IV ICU vs eICU,Basic + labs,0.738,0.878,51812,25906 / 25906,age; bmi; glucose_first_24h; creatinine_first_24h; bun_first_24h; wbc_first_24h; hemoglobin_first_24h; female; hypertension_history; ckd_history; cvd_history
+Realistic ICU deployment,MIMIC-IV ICU vs eICU,Basic + labs + vitals,0.748,0.959,51812,25906 / 25906,age; bmi; glucose_first_24h; creatinine_first_24h; bun_first_24h; wbc_first_24h; hemoglobin_first_24h; heart_rate_first_24h; systolic_bp_first_24h; diastolic_bp_first_24h; respiratory_rate_first_24h; spo2_first_24h; female; hypertension_history; ckd_history; cvd_history

@@ -1,0 +1,30 @@
+# Table_1_baseline_characteristics
+
+| Characteristic | NHANES | MIMIC-IV ICU | eICU | Max absolute SMD |
+| --- | --- | --- | --- | --- |
+| N | 6564 | 25906 | 55486 |  |
+| Age, years | 61.25 (13.46); n=6564 | 65.23 (14.28); n=25906 | 64.56 (15.23); n=55486 | 0.286 |
+| Female | 3151/6564 (48.0%) | 11015/25906 (42.5%) | 25493/55482 (45.9%) | 0.110 |
+| BMI, kg/m2 | 32.44 (7.64); n=6390 | 29.86 (7.73); n=16362 | 31.39 (9.01); n=53105 | 0.335 |
+| Hypertension history | 4308/6547 (65.8%) | 21055/25906 (81.3%) | 37131/55486 (66.9%) | 0.356 |
+| CKD history | 2577/6564 (39.3%) | 9456/25906 (36.5%) | 16481/55486 (29.7%) | 0.202 |
+| CVD history | 1715/6562 (26.1%) | 17673/25906 (68.2%) | 31287/55486 (56.4%) | 0.930 |
+| Systolic BP, mmHg | 132.26 (20.31); n=6290 | 120.57 (17.53); n=25851 | 126.88 (29.53); n=54448 | 0.616 |
+| Diastolic BP, mmHg | 68.93 (14.53); n=6290 | 62.73 (11.59); n=25851 | 67.01 (18.60); n=54448 | 0.472 |
+| Glucose, mg/dL | 157.19 (62.19); n=3337 | 138.65 (57.36); n=25647 | 194.81 (112.18); n=50623 | 0.630 |
+| Creatinine, mg/dL | 1.02 (0.72); n=6186 | 1.67 (1.69); n=25749 | 1.87 (1.89); n=47287 | 0.595 |
+| BUN, mg/dL | Not available | 29.28 (23.16); n=25747 | 31.52 (23.66); n=47085 | 0.096 |
+| WBC, 10^9/L | Not available | 13.83 (10.78); n=25678 | 12.16 (7.44); n=44361 | 0.181 |
+| Hemoglobin, g/dL | Not available | 9.88 (2.22); n=25679 | 10.77 (2.23); n=44798 | 0.404 |
+| Heart rate, beats/min | Not available | 84.39 (15.40); n=25877 | 88.99 (20.64); n=54515 | 0.252 |
+| SpO2, % | Not available | 96.82 (2.48); n=25848 | 96.75 (4.37); n=53998 | 0.018 |
+| Albumin, g/dL | Not available | 3.24 (0.70); n=11048 | 2.86 (0.66); n=23504 | 0.551 |
+| Primary endpoint event | 166/6564 (2.5%) | 2988/25906 (11.5%) | 5242/55486 (9.4%) |  |
+
+## Notes
+
+- Values are mean (SD); n=available, n/N (%), or count.
+- NHANES uses one-year mortality as the primary endpoint; MIMIC-IV ICU and eICU use hospital mortality.
+- Comorbidity definitions are not identical across data sources: NHANES CKD uses measured eGFR and/or albuminuria and NHANES hypertension/CVD use survey or examination-derived history variables, whereas MIMIC-IV ICU and eICU use harmonized diagnosis/history indicators.
+- ICU laboratory and vital-sign variables are first values within 24 hours after ICU admission; NHANES measurements are survey/exam measurements.
+- SMDs are absolute standardized mean differences; no SMD is calculated for the endpoint row.

@@ -1,0 +1,21 @@
+{
+  "generated_on": "2026-06-11",
+  "primary_model": "Unweighted logistic regression",
+  "n_bootstrap": 1000,
+  "random_seed": 20260611,
+  "metrics": [
+    "event_rate",
+    "mean_prediction",
+    "roc_auc",
+    "pr_auc",
+    "brier_score",
+    "ece_10bin",
+    "ece_10bin_equal_width",
+    "calibration_slope",
+    "calibration_intercept"
+  ],
+  "ci": "Percentile 2.5% and 97.5% bootstrap intervals.",
+  "prediction_source": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\sensitivity_unweighted_full_recalibration_dca\\unweighted_transport_eval_predictions.csv",
+  "endpoint_note": "NHANES -> MIMIC-IV uses one-year mortality; MIMIC-IV ICU <-> eICU uses hospital mortality.",
+  "class_weighted_results": "Retained as Supplementary_Table_class_weighted_transport_performance.* and Supplementary_Table_class_weight_sensitivity.*"
+}

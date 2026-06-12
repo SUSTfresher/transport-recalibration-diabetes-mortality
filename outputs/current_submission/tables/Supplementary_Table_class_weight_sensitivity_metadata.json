@@ -1,0 +1,6 @@
+{
+  "purpose": "Sensitivity analysis comparing primary class-balanced logistic transport results with unweighted logistic regression.",
+  "class_weight_primary": "balanced",
+  "class_weight_sensitivity": "none",
+  "note": "Uses the same cohort loaders, feature sets, deterministic splits, and primary logistic model settings as the primary analyses, except for class weighting. Also reports 10-bin equal-frequency and equal-width ECE as a binning robustness check; no recalibration or bootstrap intervals are run here."
+}

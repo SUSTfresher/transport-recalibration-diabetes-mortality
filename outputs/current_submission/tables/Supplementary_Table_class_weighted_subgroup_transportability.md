@@ -1,0 +1,27 @@
+# Table_5_subgroup_transportability
+
+| Direction | Subgroup type | Subgroup | N | Events | Event rate | AUC | ECE |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| NHANES -> MIMIC-IV | Age | Age <65 | 17041 | 2161 | 0.127 | 0.635 | 0.184 |
+| NHANES -> MIMIC-IV | Age | Age >=65 | 16160 | 4136 | 0.256 | 0.630 | 0.395 |
+| NHANES -> MIMIC-IV | CKD history | No CKD | 22438 | 3369 | 0.150 | 0.651 | 0.229 |
+| NHANES -> MIMIC-IV | CKD history | CKD | 10763 | 2928 | 0.272 | 0.636 | 0.405 |
+| NHANES -> MIMIC-IV | CVD history | No CVD | 16021 | 2207 | 0.138 | 0.664 | 0.140 |
+| NHANES -> MIMIC-IV | CVD history | CVD | 17180 | 4090 | 0.238 | 0.651 | 0.423 |
+| MIMIC-IV ICU -> eICU | Age | Age <65 | 6221 | 399 | 0.064 | 0.712 | 0.300 |
+| MIMIC-IV ICU -> eICU | Age | Age >=65 | 7750 | 864 | 0.111 | 0.701 | 0.389 |
+| MIMIC-IV ICU -> eICU | CKD history | No CKD | 9775 | 695 | 0.071 | 0.720 | 0.333 |
+| MIMIC-IV ICU -> eICU | CKD history | CKD | 4196 | 568 | 0.135 | 0.678 | 0.387 |
+| MIMIC-IV ICU -> eICU | CVD history | No CVD | 6071 | 459 | 0.076 | 0.754 | 0.334 |
+| MIMIC-IV ICU -> eICU | CVD history | CVD | 7900 | 804 | 0.102 | 0.692 | 0.361 |
+| eICU -> MIMIC-IV ICU | Age | Age <65 | 2951 | 238 | 0.081 | 0.749 | 0.278 |
+| eICU -> MIMIC-IV ICU | Age | Age >=65 | 3444 | 474 | 0.138 | 0.718 | 0.408 |
+| eICU -> MIMIC-IV ICU | CKD history | No CKD | 4150 | 379 | 0.091 | 0.748 | 0.307 |
+| eICU -> MIMIC-IV ICU | CKD history | CKD | 2245 | 333 | 0.148 | 0.704 | 0.423 |
+| eICU -> MIMIC-IV ICU | CVD history | No CVD | 2069 | 179 | 0.087 | 0.792 | 0.284 |
+| eICU -> MIMIC-IV ICU | CVD history | CVD | 4326 | 533 | 0.123 | 0.710 | 0.378 |
+
+## Notes
+
+- Rows report raw transported logistic-regression performance within target-site subgroups.
+- AUC is ROC AUC; ECE is 10-bin equal-frequency expected calibration error.

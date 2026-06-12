@@ -1,0 +1,20 @@
+panel,record_type,direction,scenario,endpoint,source,source_n,source_events,target,target_n,target_events,metric,value,notes,feature_block,n_balanced,n_per_source
+1a,transport_direction,NHANES -> MIMIC-IV,Extreme stress test,1-year mortality,NHANES,6564.0,166.0,MIMIC-IV,33201.0,6297.0,,,Design schematic transport direction.,,,
+1a,transport_direction,MIMIC-IV ICU -> eICU,ICU deployment,Hospital mortality,MIMIC-IV ICU,25906.0,2988.0,eICU,13971.0,1263.0,,,Design schematic transport direction.,,,
+1a,transport_direction,eICU -> MIMIC-IV ICU,ICU deployment,Hospital mortality,eICU,55486.0,5242.0,MIMIC-IV ICU,6395.0,712.0,,,Design schematic transport direction.,,,
+1b,source_cohort,NHANES -> MIMIC-IV,Extreme stress test,1-year mortality,NHANES,6564.0,166.0,MIMIC-IV,33201.0,6297.0,source_events,166.0,Source cohort size and target evaluation size for primary transport direction.,,,
+1b,target_cohort,NHANES -> MIMIC-IV,Extreme stress test,1-year mortality,NHANES,6564.0,166.0,MIMIC-IV,33201.0,6297.0,target_events,6297.0,Source cohort size and target evaluation size for primary transport direction.,,,
+1b,source_cohort,MIMIC-IV ICU -> eICU,ICU deployment,Hospital mortality,MIMIC-IV ICU,25906.0,2988.0,eICU,13971.0,1263.0,source_events,2988.0,Source cohort size and target evaluation size for primary transport direction.,,,
+1b,target_cohort,MIMIC-IV ICU -> eICU,ICU deployment,Hospital mortality,MIMIC-IV ICU,25906.0,2988.0,eICU,13971.0,1263.0,target_events,1263.0,Source cohort size and target evaluation size for primary transport direction.,,,
+1b,source_cohort,eICU -> MIMIC-IV ICU,ICU deployment,Hospital mortality,eICU,55486.0,5242.0,MIMIC-IV ICU,6395.0,712.0,source_events,5242.0,Source cohort size and target evaluation size for primary transport direction.,,,
+1b,target_cohort,eICU -> MIMIC-IV ICU,ICU deployment,Hospital mortality,eICU,55486.0,5242.0,MIMIC-IV ICU,6395.0,712.0,target_events,712.0,Source cohort size and target evaluation size for primary transport direction.,,,
+1c,source_classifier_auc,NHANES vs MIMIC-IV,Extreme cross-setting stress test,,,,,,,,Logistic AUC,0.707,Feature-block source-classifier AUC from Table 2.,Basic,13532.0,6766
+1c,source_classifier_auc,NHANES vs MIMIC-IV,Extreme cross-setting stress test,,,,,,,,Random forest AUC,0.812,Feature-block source-classifier AUC from Table 2.,Basic,13532.0,6766
+1c,source_classifier_auc,NHANES vs MIMIC-IV,Extreme cross-setting stress test,,,,,,,,Logistic AUC,0.743,Feature-block source-classifier AUC from Table 2.,Basic + labs,13532.0,6766
+1c,source_classifier_auc,NHANES vs MIMIC-IV,Extreme cross-setting stress test,,,,,,,,Random forest AUC,0.984,Feature-block source-classifier AUC from Table 2.,Basic + labs,13532.0,6766
+1d,source_classifier_auc,MIMIC-IV ICU vs eICU,Realistic ICU deployment,,,,,,,,Logistic AUC,0.628,Feature-block source-classifier AUC from Table 2.,Basic,51812.0,25906 / 25906
+1d,source_classifier_auc,MIMIC-IV ICU vs eICU,Realistic ICU deployment,,,,,,,,Random forest AUC,0.784,Feature-block source-classifier AUC from Table 2.,Basic,51812.0,25906 / 25906
+1d,source_classifier_auc,MIMIC-IV ICU vs eICU,Realistic ICU deployment,,,,,,,,Logistic AUC,0.738,Feature-block source-classifier AUC from Table 2.,Basic + labs,51812.0,25906 / 25906
+1d,source_classifier_auc,MIMIC-IV ICU vs eICU,Realistic ICU deployment,,,,,,,,Random forest AUC,0.878,Feature-block source-classifier AUC from Table 2.,Basic + labs,51812.0,25906 / 25906
+1d,source_classifier_auc,MIMIC-IV ICU vs eICU,Realistic ICU deployment,,,,,,,,Logistic AUC,0.748,Feature-block source-classifier AUC from Table 2.,Basic + labs + vitals,51812.0,25906 / 25906
+1d,source_classifier_auc,MIMIC-IV ICU vs eICU,Realistic ICU deployment,,,,,,,,Random forest AUC,0.959,Feature-block source-classifier AUC from Table 2.,Basic + labs + vitals,51812.0,25906 / 25906

@@ -1,0 +1,37 @@
+__pycache__/
+.venv/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Do not commit protected, credentialed, or patient-level clinical data.
+data/
+*.csv.gz
+*.zip
+*.7z
+*.parquet
+*.feather
+*.joblib
+*.db
+*.duckdb
+*.sqlite
+
+# Exclude bulky/intermediate analysis outputs by default.
+outputs/*
+
+# Local working drafts and handoff notes may contain machine-specific paths.
+docs/
+
+# Keep only the curated manuscript-facing submission folder.
+!outputs/current_submission/
+!outputs/current_submission/**
+
+# Exclude large journal TIFF exports and heavy bootstrap/prediction files from GitHub.
+outputs/current_submission/**/*.tiff
+outputs/current_submission/**/*bootstrap_long.csv
+outputs/current_submission/submission_audit_report.md
+
+# Local temporary files.
+*.tmp
+*.log

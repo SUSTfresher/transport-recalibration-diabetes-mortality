@@ -1,0 +1,18 @@
+{
+  "primary_model": "unweighted logistic regression",
+  "table3_rows": 3,
+  "table4_rows": 13,
+  "table5_rows": 18,
+  "table6_rows": 9,
+  "directions": [
+    "NHANES -> MIMIC-IV",
+    "MIMIC-IV ICU -> eICU",
+    "eICU -> MIMIC-IV ICU"
+  ],
+  "source_files": {
+    "predictions": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\sensitivity_unweighted_full_recalibration_dca\\unweighted_transport_eval_predictions.csv",
+    "recalibration": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\sensitivity_unweighted_full_recalibration_dca\\unweighted_event_count_recalibration_summary.csv",
+    "decision_curve": "D:\\\u591a\u5e93\u8054\u5408_\u533b\u5de5\u7ed3\u5408\\outputs\\sensitivity_unweighted_full_recalibration_dca\\unweighted_decision_curve_selected_thresholds.csv"
+  },
+  "class_weighted_backup": "Supplementary_Table_class_weighted_* files were copied before overwriting primary tables."
+}
