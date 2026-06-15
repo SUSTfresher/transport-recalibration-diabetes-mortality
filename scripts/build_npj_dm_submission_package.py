@@ -808,11 +808,13 @@ Abstract word count: {len(abstract.split())}
 
     cover = f"""Dear Editors,
 
-Please consider our Article, "{ARTICLE_TITLE}", for publication in npj Digital Medicine.
+We submit for your consideration our Article, "{ARTICLE_TITLE}", for publication in npj Digital Medicine.
 
-This study addresses a practical barrier in clinical AI deployment: transported models may retain discrimination while failing on the probability scale. Using NHANES, MIMIC-IV, and eICU, we evaluate diabetes mortality model transport across an extreme population-to-hospital stress test and a bidirectional ICU-to-ICU deployment scenario. The central contribution is an operational diagnostic sequence that separates source-shift detection from probability-scale diagnosis and uses calibration slope, intercept, and local event-count experiments to guide recalibration strategy.
+Clinical prediction models are increasingly transported across institutions and data environments, yet deployment teams lack a practical method for diagnosing how a transported model has failed on the probability scale and which recalibration strategy to apply. We address this gap using NHANES, MIMIC-IV, and eICU to evaluate diabetes mortality model transport across an extreme population-to-hospital stress test and a bidirectional ICU-to-ICU deployment scenario. Our central contribution is an operational diagnostic sequence--quantify source shift, assess transported discrimination, diagnose calibration slope and intercept, and select an updating strategy--that deployment teams can apply with a modest local outcome sample. We show that source separability alone did not determine recalibration need in these scenarios: one ICU direction required slope-and-intercept updating, whereas the reverse direction was already near calibrated despite strong source separability. This distinction addresses a common oversimplification in clinical AI deployment practice.
 
-The manuscript is, to our knowledge, not under consideration elsewhere. All authors have approved the submission. The analysis uses de-identified public or credentialed-access secondary data, and no new human participant recruitment or intervention was conducted. Code is publicly available at https://github.com/SUSTfresher/transport-recalibration-diabetes-mortality and archived at https://doi.org/10.5281/zenodo.20657894.
+We believe this work is well suited to npj Digital Medicine because it provides clinically actionable methodology for transportability, calibration failure diagnosis, and local model updating in real-world digital health settings. The code is publicly available at https://github.com/SUSTfresher/transport-recalibration-diabetes-mortality and archived at https://doi.org/10.5281/zenodo.20657894.
+
+The manuscript is not under consideration elsewhere, and all authors have approved this submission. The analysis uses de-identified publicly available or credentialed-access secondary data from NHANES, MIMIC-IV, and eICU; no new human participant recruitment or intervention was conducted.
 
 Sincerely,
 
@@ -916,7 +918,7 @@ Official sources checked:
 ## Files to upload
 
 - `01_manuscript/NPJDM_main_manuscript_with_tables_and_figures.docx`
-- `02_submission_text/NPJDM_cover_letter.md`
+- `02_submission_text/NPJDM_cover_letter.docx`
 - `03_main_figures/Figure_1_study_design_source_shift.pdf`
 - `03_main_figures/Figure_2_calibration_state_map.pdf`
 - `03_main_figures/Figure_3_event_count_recalibration.pdf`
@@ -992,6 +994,10 @@ def convert_outputs() -> None:
     supp_docx = TARGET / "04_supplementary_information" / "NPJDM_supplementary_information.docx"
     if convert_with_pandoc(supp_md, supp_docx, [TARGET, TARGET / "04_supplementary_information"]):
         convert_docx_to_pdf(supp_docx, TARGET / "04_supplementary_information")
+
+    cover_md = TARGET / "02_submission_text" / "NPJDM_cover_letter.md"
+    cover_docx = TARGET / "02_submission_text" / "NPJDM_cover_letter.docx"
+    convert_with_pandoc(cover_md, cover_docx, [TARGET, TARGET / "02_submission_text"])
 
 
 def copy_reporting_checklists() -> None:
