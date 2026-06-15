@@ -25,6 +25,7 @@ RUNNING_TITLE = "Transport failure in mortality prediction"
 ARTICLE_TYPE = "Article"
 
 AUTHORS = "Mingwei Wang^1, Haozhen Liu^1, Peng Dong^2, Jingxin Tang^1, Chenyue Guo^1, Yifan Yan^1, Yixuan Zhang^1"
+MANUSCRIPT_AUTHORS = "Mingwei Wang^1, Haozhen Liu^1, Peng Dong^2*, Jingxin Tang^1, Chenyue Guo^1, Yifan Yan^1, Yixuan Zhang^1"
 AFFILIATIONS = (
     "1. School of Electronic Information and Artificial Intelligence, Shaanxi University of Science and Technology, "
     "Xi'an, Shaanxi 710021, China\n"
@@ -668,15 +669,13 @@ Article type: {ARTICLE_TYPE}
 
 Running title: {RUNNING_TITLE}
 
-Authors: {AUTHORS}
+Authors: {MANUSCRIPT_AUTHORS}
 
 Affiliations:
 
 {AFFILIATIONS}
 
-Corresponding author: {CORRESPONDING}
-
-Author emails: {AUTHOR_EMAILS}
+*Correspondence: dongpeng1807@xjtu.edu.cn
 
 """
 
