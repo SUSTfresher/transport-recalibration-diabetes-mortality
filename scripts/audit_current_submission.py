@@ -223,8 +223,6 @@ def check_remaining_risks(lines: list[str]) -> None:
     items = [
         "Confirm journal-specific figure dimension and TIFF requirements before upload.",
         "Transfer TRIPOD_AI_checklist_draft.md into the journal's official checklist format.",
-        "Confirm local ethics exemption/approval wording for secondary de-identified data analysis.",
-        "Fill author initials, funding, competing interests, and acknowledgements in submission_statements.md.",
         "Confirm whether Supplementary Tables should be split into separate Excel sheets or uploaded as CSV/MD.",
         "Run a final human read for wording around endpoint differences and DCA threshold interpretation.",
     ]

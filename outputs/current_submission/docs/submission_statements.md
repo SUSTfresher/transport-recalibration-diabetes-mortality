@@ -10,23 +10,23 @@ Analysis scripts used to generate the processed cohorts, source-shift analyses, 
 
 ## Ethics Approval
 
-This study used de-identified public or credentialed-access secondary data. NHANES protocols were approved by the National Center for Health Statistics Research Ethics Review Board, with participant consent obtained by the original study. MIMIC-IV and eICU are de-identified databases available through PhysioNet under required credentialing and data-use agreements. No new human participant recruitment or intervention was conducted for this secondary analysis. Local institutional review requirements: [confirm exemption/approval status and insert if required by the target institution].
+This study used de-identified public or credentialed-access secondary data. NHANES protocols were approved by the National Center for Health Statistics Research Ethics Review Board, with participant consent obtained by the original study. MIMIC-IV and eICU are de-identified databases available through PhysioNet under required credentialing, data-use training, and data-use agreements. No new human participant recruitment, intervention, or patient-care decision was conducted for this retrospective secondary analysis. This secondary analysis used de-identified data and did not require additional institutional review board approval.
 
 ## Competing Interests
 
-The authors declare no competing interests. [Confirm before submission.]
+All authors declare no financial or non-financial competing interests.
 
 ## Funding
 
-[Insert funding sources and grant numbers, or state: The authors received no specific funding for this work.]
+This work was supported by the Qinchuangyuan Scientists and Engineers Team Construction Project of the Shaanxi Provincial Department of Science and Technology (2024QCY-KXJ-181), the International Science and Technology Cooperation Program of Shaanxi Province (China-Iran) (2024GH-YBXM-06), the University and Research Institute Service Enterprise Project of Xi'an Municipal Science and Technology Bureau (25GXKJRC00055), and the Technology Innovation Guidance Program (Fund) of the Shaanxi Provincial Department of Science and Technology (2025YFBT-22-01/02, 2025ZC-SXFF3-11/12/13, 2025ZC-SXFF3-35/36/37). The funders had no role in study design, data collection, analysis, interpretation, manuscript preparation, or the decision to submit the article for publication.
 
 ## Author Contributions
 
-[Insert author initials.] conceived the study. [Initials] curated the data. [Initials] performed the analyses. [Initials] drafted the manuscript. [Initials] verified the underlying data and analysis outputs. All authors interpreted the results, revised the manuscript critically, approved the final manuscript, and agreed to be accountable for the work.
+M.W. and P.D. conceived and supervised the study. H.L. performed data curation, cohort construction, statistical analysis, model development, recalibration simulations, visualization, and drafted the manuscript. P.D. provided clinical interpretation and critically revised the manuscript for important intellectual content. J.T., C.G., Y.Y., and Y.Z. contributed to data checking, literature review, result verification, and manuscript revision. M.W. provided methodological supervision and critical revision. All authors reviewed and approved the final manuscript and agree to be accountable for the integrity of the work.
 
 ## Acknowledgements
 
-The authors thank the developers and maintainers of NHANES, MIMIC-IV, eICU, and PhysioNet for making these resources available to the research community. [Add local acknowledgements if applicable.]
+The authors thank the developers and maintainers of NHANES, MIMIC-IV, eICU, and PhysioNet for making these resources available to the research community.
 
 ## AI Assistance Disclosure
 
@@ -34,4 +34,4 @@ During manuscript preparation, AI-assisted tools were used to support drafting, 
 
 ## Reporting Checklist
 
-TRIPOD+AI checklist completion is planned for submission alongside the manuscript. Items requiring manual confirmation before upload include author information, funding, competing interests, local ethics determination, code repository URL/DOI, and final supplementary-file format.
+The TRIPOD+AI checklist draft is prepared for transfer into the journal's official checklist format before upload. Items requiring manual confirmation before upload include final author order/affiliations, journal-specific figure requirements, and final supplementary-file format.

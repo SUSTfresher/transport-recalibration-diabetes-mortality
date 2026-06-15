@@ -6,7 +6,7 @@ This table fixes the manuscript's core transport-performance comparison after pr
 
 Important endpoint note: the NHANES -> MIMIC-IV stress-test uses a one-year mortality endpoint, whereas the MIMIC-IV ICU <-> eICU deployment analyses use harmonized hospital mortality. The NHANES and MIMIC-IV one-year endpoints also differ in ascertainment mechanism: NHANES uses linked community mortality follow-up, whereas MIMIC-IV uses hospital-episode data plus post-discharge mortality. These rows should be compared as endpoint-specific deployment scenarios; the cross-scenario contrast is intended to compare transport failure modes and recalibration needs, not endpoint-equivalent absolute accuracy. Do not interpret row-to-row differences in AUC, ECE, or Brier score as absolute performance differences under a shared endpoint.
 
-Model note: Table 3 reports unweighted logistic regression. The former class-weighted primary analysis is retained in the supplementary class-weighting sensitivity tables.
+Model note: Table 3 reports unweighted logistic regression. Class-weighted logistic regression is retained in the supplementary class-weighting sensitivity tables.
 
 All displayed intervals are percentile 95% confidence intervals from 1000 bootstrap resamples of the target/evaluation cohort.
 

@@ -16,7 +16,7 @@ Generated files:
 - `Table_4_recalibration_by_event_count_panel.csv` and `.md`
 - `Table_5_subgroup_transportability.csv` and `.md`
 - `Table_6_decision_curve_selected_thresholds.csv` and `.md`
-- `Supplementary_Table_class_weighted_*` files for the former class-weighted primary/sensitivity analyses
+- `Supplementary_Table_class_weighted_*` files for class-weighting sensitivity analyses
 
 ## Generation
 

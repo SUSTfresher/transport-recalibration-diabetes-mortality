@@ -439,7 +439,7 @@ def write_readme(summary: pd.DataFrame, dca: pd.DataFrame) -> None:
             "",
             "## Interpretation",
             "",
-            "The unweighted analysis tests whether class weighting drove the apparent need for recalibration. It should be read as a major sensitivity analysis rather than a replacement for the locked primary class-weighted results unless the manuscript is later re-centered on unweighted logistic regression.",
+            "This analysis supports the primary unweighted logistic-regression results and tests how much class weighting would have changed probability-scale conclusions.",
         ]
     )
     (OUT_DIR / "README_unweighted_full_recalibration_dca.md").write_text("\n".join(lines), encoding="utf-8")
