@@ -157,21 +157,227 @@ def clean_existing_table_md(path: Path, title: str) -> str:
     return f"## {title}\n" + "\n".join(lines).strip() + "\n"
 
 
+def rows_to_markdown(header: list[str], rows: list[list[str]]) -> str:
+    lines = [
+        "| " + " | ".join(header) + " |",
+        "| " + " | ".join(["---"] * len(header)) + " |",
+    ]
+    for row in rows:
+        row = row + [""] * (len(header) - len(row))
+        lines.append("| " + " | ".join(str(cell).replace("\n", " ") for cell in row[: len(header)]) + " |")
+    return "\n".join(lines)
+
+
+def read_dict_rows(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        return list(csv.DictReader(f))
+
+
+def fmt_intish(value: str) -> str:
+    try:
+        return str(int(round(float(value))))
+    except (TypeError, ValueError):
+        return value
+
+
 def table3_markdown() -> str:
+    rows = []
+    for row in read_dict_rows(TABLE_DIR / "Table_3_cross_scenario_transport_performance.csv"):
+        rows.append(
+            [
+                row["Direction"],
+                row["Endpoint"],
+                f'{row["Target evaluation N"]} ({row["Target evaluation events"]})',
+                row["Event rate"],
+                row["AUC"],
+                row["ECE"],
+                row["Calibration slope"],
+                row["Calibration intercept"],
+            ]
+        )
+
     notes = (
         "Important endpoint note: the NHANES -> MIMIC-IV stress test uses a one-year mortality endpoint, whereas "
         "the MIMIC-IV ICU <-> eICU deployment analyses use harmonized hospital mortality. Rows should be compared "
         "as endpoint-specific deployment scenarios; the cross-scenario contrast is intended to compare transport "
         "failure modes and recalibration needs, not endpoint-equivalent absolute accuracy. All displayed intervals "
-        "are percentile 95% confidence intervals from 1,000 bootstrap resamples of the target evaluation cohort."
+        "are percentile 95% confidence intervals from 1,000 bootstrap resamples of the target evaluation cohort. "
+        "Full performance metrics, including mean predicted risk, PR AUC, Brier score, and equal-width ECE, are "
+        "provided in Supplementary Data 1."
     )
     return (
         "## Table 3 | Cross-scenario transport performance\n\n"
-        + csv_to_markdown(TABLE_DIR / "Table_3_cross_scenario_transport_performance.csv")
+        + rows_to_markdown(
+            [
+                "Direction",
+                "Endpoint",
+                "Target N (events)",
+                "Event rate",
+                "AUC",
+                "ECE",
+                "Calibration slope",
+                "Calibration intercept",
+            ],
+            rows,
+        )
         + "\n\n"
         + notes
         + "\n"
     )
+
+
+def table4_markdown() -> str:
+    all_rows = read_dict_rows(TABLE_DIR / "Table_4_recalibration_by_event_count_numeric_long.csv")
+    directions = []
+    for row in all_rows:
+        if row["Direction"] not in directions:
+            directions.append(row["Direction"])
+
+    parts = [
+        "## Table 4 | Event-count recalibration by direction and method",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for idx, direction in enumerate(directions):
+        panel_rows = []
+        for row in all_rows:
+            if row["Direction"] != direction:
+                continue
+            panel_rows.append(
+                [
+                    row["Method"],
+                    row["Local outcome events"],
+                    row["ECE (95% empirical interval)"],
+                    fmt_intish(row["calibration_n_mean"]),
+                    row["n_repeats"],
+                ]
+            )
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        parts.extend(
+            [
+                f"**Panel {label}. {direction}**",
+                "",
+                rows_to_markdown(
+                    ["Method", "Local events", "ECE (95% empirical interval)", "Mean calibration N", "Repeats"],
+                    panel_rows,
+                ),
+                "",
+            ]
+        )
+
+    parts.append(
+        "Primary model is unweighted logistic regression. Raw transport is a point estimate before local "
+        "recalibration; interval columns apply to repeated recalibration samples. Full recalibration summaries, "
+        "including equal-width ECE and calibration-slope intervals, are provided in Supplementary Data 1."
+    )
+    return "\n".join(parts) + "\n"
+
+
+def table5_markdown() -> str:
+    all_rows = read_dict_rows(TABLE_DIR / "Table_5_subgroup_transportability.csv")
+    directions = []
+    for row in all_rows:
+        if row["Direction"] not in directions:
+            directions.append(row["Direction"])
+
+    parts = [
+        "## Table 5 | Subgroup transportability by age CKD and CVD",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for idx, direction in enumerate(directions):
+        panel_rows = []
+        for row in all_rows:
+            if row["Direction"] != direction:
+                continue
+            panel_rows.append(
+                [
+                    f'{row["Subgroup type"]}: {row["Subgroup"]}',
+                    f'{row["N"]} ({row["Events"]})',
+                    row["Event rate"],
+                    row["AUC"],
+                    row["ECE"],
+                    row["Calibration slope"],
+                ]
+            )
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        parts.extend(
+            [
+                f"**Panel {label}. {direction}**",
+                "",
+                rows_to_markdown(
+                    ["Subgroup", "N (events)", "Event rate", "AUC", "ECE", "Calibration slope"],
+                    panel_rows,
+                ),
+                "",
+            ]
+        )
+
+    parts.append(
+        "Primary model is unweighted logistic regression. Rows report raw transported performance within target-site "
+        "subgroups. ECE is 10-bin equal-frequency expected calibration error. Subgroup ECE is descriptive and may "
+        "partly reflect subgroup event-rate differences. Full subgroup metrics, including equal-width ECE, are "
+        "provided in Supplementary Data 1."
+    )
+    return "\n".join(parts) + "\n"
+
+
+def table6_markdown() -> str:
+    all_rows = read_dict_rows(TABLE_DIR / "Table_6_decision_curve_selected_thresholds.csv")
+    directions = []
+    for row in all_rows:
+        if row["Direction"] not in directions:
+            directions.append(row["Direction"])
+
+    parts = [
+        "## Table 6 | Decision-curve net benefit at selected thresholds",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for idx, direction in enumerate(directions):
+        panel_rows = []
+        for row in all_rows:
+            if row["Direction"] != direction:
+                continue
+            panel_rows.append(
+                [
+                    row["Threshold"],
+                    row["Treat none"],
+                    row["Treat all"],
+                    row["Raw transport logistic"],
+                    row["Intercept-only 100 events"],
+                    row["Platt 100 events"],
+                    row["Internal HGB benchmark"],
+                ]
+            )
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        parts.extend(
+            [
+                f"**Panel {label}. {direction}**",
+                "",
+                rows_to_markdown(
+                    [
+                        "Threshold",
+                        "Treat none",
+                        "Treat all",
+                        "Raw transport",
+                        "Intercept-only",
+                        "Platt",
+                        "Internal HGB",
+                    ],
+                    panel_rows,
+                ),
+                "",
+            ]
+        )
+
+    parts.append(
+        "Net benefit is reported at thresholds 0.20, 0.25, and 0.30. Intercept-only and Platt columns use "
+        "100 local outcome events. Internal HGB benchmark is the target-site histogram-gradient-boosting model. "
+        "Thresholds are illustrative cutoffs for high-risk clinical review rather than validated treatment "
+        "thresholds."
+    )
+    return "\n".join(parts) + "\n"
 
 
 def build_tables_markdown() -> str:
@@ -179,9 +385,9 @@ def build_tables_markdown() -> str:
         clean_existing_table_md(TABLE_DIR / "Table_1_baseline_characteristics.md", "Table 1 | Baseline characteristics of the three diabetes cohorts"),
         clean_existing_table_md(TABLE_DIR / "Table_2_source_classifier_auc.md", "Table 2 | Source-classifier AUCs by scenario and feature block"),
         table3_markdown(),
-        clean_existing_table_md(TABLE_DIR / "Table_4_recalibration_by_event_count_panel.md", "Table 4 | Event-count recalibration by direction and method"),
-        clean_existing_table_md(TABLE_DIR / "Table_5_subgroup_transportability.md", "Table 5 | Subgroup transportability by age CKD and CVD"),
-        clean_existing_table_md(TABLE_DIR / "Table_6_decision_curve_selected_thresholds.md", "Table 6 | Decision-curve net benefit at selected thresholds"),
+        table4_markdown(),
+        table5_markdown(),
+        table6_markdown(),
     ]
     return "\n\n".join(parts)
 
@@ -446,6 +652,7 @@ Official sources checked:
 - PASS References count is 38, below the npj Article guide limit of 60.
 - PASS Figure legends word counts are all below 350: {figure_legend_words}.
 - PASS Main tables are placed at the end of the text document.
+- PASS Main display tables use Word-safe compact layouts; full numeric columns are retained in Supplementary Data 1.
 - PASS Supplementary Information is combined into one file, with no Supplementary Methods.
 
 ## Files to upload
