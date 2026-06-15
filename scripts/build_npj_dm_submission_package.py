@@ -380,6 +380,265 @@ def table6_markdown() -> str:
     return "\n".join(parts) + "\n"
 
 
+def supplementary_table1_markdown() -> str:
+    rows = []
+    for row in read_dict_rows(TABLE_DIR / "Supplementary_Table_source_internal_calibration.csv"):
+        rows.append(
+            [
+                row["Source"],
+                f'{row["N"]} ({row["Events"]})',
+                row["Event rate"],
+                row["Mean predicted risk"],
+                row["AUC"],
+                row["ECE"],
+                row["Calibration slope"],
+                row["Calibration intercept"],
+            ]
+        )
+    return (
+        "## Supplementary Table 1 | Source-internal calibration checks\n\n"
+        + rows_to_markdown(
+            [
+                "Source",
+                "N (events)",
+                "Event rate",
+                "Mean predicted risk",
+                "AUC",
+                "ECE",
+                "Calibration slope",
+                "Calibration intercept",
+            ],
+            rows,
+        )
+        + "\n\n"
+        + "Rows report unweighted logistic model performance on each source dataset's internal or temporal holdout. "
+        "The ICU source models were close to calibrated on their source holdouts, supporting interpretation of "
+        "ICU-to-ICU slope distortion as a transport phenomenon. The NHANES temporal holdout contained few "
+        "one-year mortality events, so its internal calibration slope is imprecise. Full internal-holdout metrics, "
+        "including PR AUC, Brier score, equal-width ECE, endpoint, and feature-set details, are provided in "
+        "Supplementary Data 1.\n"
+    )
+
+
+def supplementary_table2_markdown() -> str:
+    rows_by_key: dict[tuple[str, str], dict[str, str]] = {}
+    for row in read_dict_rows(TABLE_DIR / "Supplementary_Table_class_weight_sensitivity.csv"):
+        rows_by_key[(row["direction"], row["class_weight"])] = row
+
+    directions = []
+    for direction, class_weight in rows_by_key:
+        if direction not in directions:
+            directions.append(direction)
+
+    parts = [
+        "## Supplementary Table 2 | Class-weighted versus unweighted logistic transport sensitivity",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for direction in directions:
+        weighted = rows_by_key[(direction, "balanced")]
+        unweighted = rows_by_key[(direction, "none")]
+        idx = directions.index(direction)
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        panel_rows = [
+            ["Weighted", f'{float(weighted["mean_prediction"]):.3f}', f'{float(weighted["roc_auc"]):.3f}', f'{float(weighted["ece_10bin_equal_frequency"]):.3f}', f'{float(weighted["calibration_slope"]):.3f}'],
+            ["Unweighted", f'{float(unweighted["mean_prediction"]):.3f}', f'{float(unweighted["roc_auc"]):.3f}', f'{float(unweighted["ece_10bin_equal_frequency"]):.3f}', f'{float(unweighted["calibration_slope"]):.3f}'],
+        ]
+        parts.extend(
+            [
+                f'**Panel {label}. {direction} ({weighted["endpoint"]})**',
+                "",
+                rows_to_markdown(
+                    ["Model", "Mean predicted risk", "AUC", "ECE", "Calibration slope"],
+                    panel_rows,
+                ),
+                "",
+            ]
+        )
+
+    parts.append(
+        "Class weighting had little effect on discrimination but materially changed absolute probability levels "
+        "and ECE. This supports the decision to use unweighted logistic regression as the primary probability "
+        "model and to interpret class-weighted results as sensitivity analyses when the model is intended for "
+        "risk estimation. Full sensitivity metrics, including PR AUC, Brier score, equal-width ECE, and "
+        "intercepts, are provided in Supplementary Data 1."
+    )
+    return "\n".join(parts) + "\n"
+
+
+def supplementary_table3_markdown() -> str:
+    all_rows = read_dict_rows(TABLE_DIR / "Supplementary_Table_class_weighted_transport_performance.csv")
+    parts = [
+        "## Supplementary Table 3 | Class-weighted transport performance",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for idx, row in enumerate(all_rows):
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        panel_rows = [
+            ["N (events)", f'{row["N"]} ({row["Events"]})'],
+            ["Event rate", row["Event rate"]],
+            ["Mean predicted risk", row["Mean predicted risk"]],
+            ["AUC", row["AUC"]],
+            ["ECE", row["ECE"]],
+            ["Calibration slope", row["Calibration slope"]],
+            ["Calibration intercept", row["Calibration intercept"]],
+        ]
+        parts.extend(
+            [
+                f'**Panel {label}. {row["Direction"]} ({row["Endpoint"]})**',
+                "",
+                rows_to_markdown(["Metric", "Value"], panel_rows),
+                "",
+            ]
+        )
+
+    parts.append(
+        "Rows report the class-weighted logistic regression sensitivity analysis. These models are not the "
+        "primary probability models in the main manuscript. Displayed intervals are percentile 95% confidence "
+        "intervals from bootstrap resampling of the target evaluation cohort. Full class-weighted transport "
+        "metrics are provided in Supplementary Data 1."
+    )
+    return "\n".join(parts) + "\n"
+
+
+def supplementary_table4_markdown() -> str:
+    all_rows = read_dict_rows(TABLE_DIR / "Supplementary_Table_class_weighted_recalibration_by_event_count_numeric_long.csv")
+    directions = []
+    for row in all_rows:
+        if row["Direction"] not in directions:
+            directions.append(row["Direction"])
+
+    parts = [
+        "## Supplementary Table 4 | Class-weighted event-count recalibration",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for idx, direction in enumerate(directions):
+        panel_rows = []
+        for row in all_rows:
+            if row["Direction"] != direction:
+                continue
+            panel_rows.append(
+                [
+                    row["Method"],
+                    row["Local outcome events"],
+                    row["ECE (95% empirical interval)"],
+                    fmt_intish(row["calibration_n_mean"]),
+                    row["n_repeats"],
+                ]
+            )
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        parts.extend(
+            [
+                f"**Panel {label}. {direction}**",
+                "",
+                rows_to_markdown(
+                    ["Method", "Local events", "ECE (95% empirical interval)", "Mean calibration N", "Repeats"],
+                    panel_rows,
+                ),
+                "",
+            ]
+        )
+
+    parts.append(
+        "This sensitivity analysis uses class-weighted source logistic models. Raw transport is a point estimate "
+        "before local recalibration; interval columns apply to repeated recalibration samples. Full class-weighted "
+        "recalibration summaries are provided in Supplementary Data 1."
+    )
+    return "\n".join(parts) + "\n"
+
+
+def supplementary_table5_markdown() -> str:
+    all_rows = read_dict_rows(TABLE_DIR / "Supplementary_Table_class_weighted_subgroup_transportability.csv")
+    directions = []
+    for row in all_rows:
+        if row["Direction"] not in directions:
+            directions.append(row["Direction"])
+
+    parts = [
+        "## Supplementary Table 5 | Class-weighted subgroup transportability",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for idx, direction in enumerate(directions):
+        panel_rows = []
+        for row in all_rows:
+            if row["Direction"] != direction:
+                continue
+            panel_rows.append(
+                [
+                    f'{row["Subgroup type"]}: {row["Subgroup"]}',
+                    f'{row["N"]} ({row["Events"]})',
+                    row["Event rate"],
+                    row["AUC"],
+                    row["ECE"],
+                ]
+            )
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        parts.extend(
+            [
+                f"**Panel {label}. {direction}**",
+                "",
+                rows_to_markdown(["Subgroup", "N (events)", "Event rate", "AUC", "ECE"], panel_rows),
+                "",
+            ]
+        )
+
+    parts.append(
+        "Rows report class-weighted transported logistic-regression performance within target-site subgroups. "
+        "ECE is 10-bin equal-frequency expected calibration error."
+    )
+    return "\n".join(parts) + "\n"
+
+
+def supplementary_table6_markdown() -> str:
+    all_rows = read_dict_rows(TABLE_DIR / "Supplementary_Table_class_weighted_decision_curve_selected_thresholds.csv")
+    directions = []
+    for row in all_rows:
+        if row["Direction"] not in directions:
+            directions.append(row["Direction"])
+
+    parts = [
+        "## Supplementary Table 6 | Class-weighted decision-curve sensitivity",
+        "",
+    ]
+    panel_labels = ["a", "b", "c"]
+    for idx, direction in enumerate(directions):
+        panel_rows = []
+        for row in all_rows:
+            if row["Direction"] != direction:
+                continue
+            panel_rows.append(
+                [
+                    row["Threshold"],
+                    row["Treat none"],
+                    row["Treat all"],
+                    row["Raw transport logistic"],
+                    row["Platt 100 events"],
+                    row["Internal HGB benchmark"],
+                ]
+            )
+        label = panel_labels[idx] if idx < len(panel_labels) else str(idx + 1)
+        parts.extend(
+            [
+                f"**Panel {label}. {direction}**",
+                "",
+                rows_to_markdown(
+                    ["Threshold", "Treat none", "Treat all", "Raw transport", "Platt", "Internal HGB"],
+                    panel_rows,
+                ),
+                "",
+            ]
+        )
+
+    parts.append(
+        "Net benefit is reported at thresholds 0.20, 0.25, and 0.30. Platt columns use 100 local outcome events. "
+        "Internal HGB benchmark is the target-site histogram-gradient-boosting model."
+    )
+    return "\n".join(parts) + "\n"
+
+
 def build_tables_markdown() -> str:
     parts = [
         clean_existing_table_md(TABLE_DIR / "Table_1_baseline_characteristics.md", "Table 1 | Baseline characteristics of the three diabetes cohorts"),
@@ -591,12 +850,12 @@ def build_supplementary_information() -> str:
         "",
         "No Supplementary Methods are provided; all Methods are reported in the main manuscript.",
         "",
-        clean_existing_table_md(TABLE_DIR / "Supplementary_Table_source_internal_calibration.md", "Supplementary Table 1 | Source-internal calibration checks"),
-        clean_existing_table_md(TABLE_DIR / "Supplementary_Table_class_weight_sensitivity.md", "Supplementary Table 2 | Class-weighted versus unweighted logistic transport sensitivity"),
-        clean_existing_table_md(TABLE_DIR / "Supplementary_Table_class_weighted_transport_performance.md", "Supplementary Table 3 | Class-weighted transport performance"),
-        clean_existing_table_md(TABLE_DIR / "Supplementary_Table_class_weighted_recalibration_by_event_count_panel.md", "Supplementary Table 4 | Class-weighted event-count recalibration"),
-        clean_existing_table_md(TABLE_DIR / "Supplementary_Table_class_weighted_subgroup_transportability.md", "Supplementary Table 5 | Class-weighted subgroup transportability"),
-        clean_existing_table_md(TABLE_DIR / "Supplementary_Table_class_weighted_decision_curve_selected_thresholds.md", "Supplementary Table 6 | Class-weighted decision-curve sensitivity"),
+        supplementary_table1_markdown(),
+        supplementary_table2_markdown(),
+        supplementary_table3_markdown(),
+        supplementary_table4_markdown(),
+        supplementary_table5_markdown(),
+        supplementary_table6_markdown(),
     ]
     return "\n\n".join(supp_parts)
 
