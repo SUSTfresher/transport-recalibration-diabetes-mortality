@@ -25,7 +25,7 @@ RUNNING_TITLE = "Transport failure in mortality prediction"
 ARTICLE_TYPE = "Article"
 
 AUTHORS = "Mingwei Wang^1, Haozhen Liu^1, Peng Dong^2, Jingxin Tang^1, Chenyue Guo^1, Yifan Yan^1, Yixuan Zhang^1"
-MANUSCRIPT_AUTHORS = "Mingwei Wang, Haozhen Liu, Peng Dong*, Jingxin Tang, Chenyue Guo, Yifan Yan, Yixuan Zhang"
+MANUSCRIPT_AUTHORS = "Mingwei Wang^1, Haozhen Liu^1, Peng Dong^2*, Jingxin Tang^1, Chenyue Guo^1, Yifan Yan^1, Yixuan Zhang^1"
 AFFILIATIONS = (
     "1. School of Electronic Information and Artificial Intelligence, Shaanxi University of Science and Technology, "
     "Xi'an, Shaanxi 710021, China\n"
@@ -666,6 +666,10 @@ def build_main_manuscript() -> str:
     title_page = f"""# {ARTICLE_TITLE}
 
 {MANUSCRIPT_AUTHORS}
+
+^1 School of Electronic Information and Artificial Intelligence, Shaanxi University of Science and Technology, Xi'an, Shaanxi 710021, China.
+
+^2 Department of Endocrinology, the Second Affiliated Hospital, Xi'an Jiaotong University, Xi'an, Shaanxi 710049, China.
 
 *Correspondence: dongpeng1807@xjtu.edu.cn
 
